@@ -12,6 +12,8 @@ Keep this file focused on repo-specific gotchas that are worth reusing in future
 - `pip install platformio` (PyPI 6.1.19). The pioarduino-core GitHub *archive* URL is 403-blocked by the egress proxy; GitHub release *downloads* are allowed.
 - The pioarduino platform's penv bootstrap fails on that same archive URL. Fix: pre-install `platformio==6.1.19` plus the `python_deps` list from `~/.platformio/platforms/espressif32/builder/penv_setup.py` into the penv via `uv pip install --python=/root/.platformio/penv/bin/python ...` so the blocked URL is skipped.
 - Python `requests` ignores `SSL_CERT_FILE`; framework downloads fail TLS until the proxy CA is appended to certifi: `cat /root/.ccr/ca-bundle.crt >> $(python3 -c 'import certifi; print(certifi.where())')` (and the penv's certifi).
+- The PlatformIO registry (`api.registry.platformio.org`) is proxy-blocked, so registry packages fail with `HTTPClientError`. Workaround: provide the package manually with a `.piopm` metadata file (copy an existing one for the format). `tool-scons` = SCons from PyPI into `~/.platformio/packages/tool-scons/lib` plus a `scons.py` shim; registry libraries (ArduinoJson, QRCode, PNGdec, WebSockets, transitive SdFat) = `git clone` the matching tag from GitHub into `.pio/libdeps/<env>/<Name>`, delete `.git`, add `.piopm`. WebSockets 2.7.3 has no git tag — clone default branch (library.json says 2.7.3). GitHub clones and release-asset downloads are allowed; GitHub `archive/refs/...` (codeload) is blocked.
+- With all workarounds applied, `pio run -e default` succeeds (~5 min) and produces `.pio/build/default/firmware-default.bin`.
 
 ## Simulator
 
