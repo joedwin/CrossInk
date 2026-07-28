@@ -61,6 +61,13 @@ Rules that keep it that way:
 
 ## Notes for Claude sessions
 
+- **Over-engineering meter**: occasionally self-assess (a quick X/10 with a one-liner)
+  how over-engineered the current approach is, especially before adding new
+  infrastructure. Joe finds this fun and it keeps the project honest — this is
+  a tinker repo, not a product.
+- **Subagents welcome**: use subagents liberally where they genuinely help
+  (parallel exploration, big searches, independent verification) and say what
+  was delegated and why.
 - Build validation: `pio run -e default` (firmware), `pio run -e simulator` (UI logic).
 - Bump the load number and add a row to **Load History** with every firmware-affecting push.
 - The on-device OTA updater currently points at `uxjulia/CrossInk` releases
