@@ -53,6 +53,11 @@ Rules that keep it that way:
 - Custom sleep-screen art / boot splash.
 - Page-turn animation experiments (within e-ink refresh limits).
 - On-device stats screen tweaks.
+- **Render previews without hardware**: run the `simulator` build headless in a
+  Claude session, capture the 800x480 framebuffer as an image, and share it in
+  chat or as a small web page viewable on mobile/desktop — "here's how this load
+  renders" before flashing anything. Could grow into a per-load screenshot
+  gallery attached to each release.
 
 ## Notes for Claude sessions
 
