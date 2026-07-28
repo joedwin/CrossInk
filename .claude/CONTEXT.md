@@ -2,6 +2,17 @@
 
 Keep this file focused on repo-specific gotchas that are worth reusing in future sessions.
 
+## Tinker Workflow
+
+- This fork is a personal tinker playground; the workflow (loads, flashing, safety) is in `TINKER.md`. Log every firmware-affecting change as a new load there.
+
+## Building In Claude Cloud Sessions
+
+- `git submodule update --init --recursive` first; the fresh clone has `freeink-sdk` unpopulated.
+- `pip install platformio` (PyPI 6.1.19). The pioarduino-core GitHub *archive* URL is 403-blocked by the egress proxy; GitHub release *downloads* are allowed.
+- The pioarduino platform's penv bootstrap fails on that same archive URL. Fix: pre-install `platformio==6.1.19` plus the `python_deps` list from `~/.platformio/platforms/espressif32/builder/penv_setup.py` into the penv via `uv pip install --python=/root/.platformio/penv/bin/python ...` so the blocked URL is skipped.
+- Python `requests` ignores `SSL_CERT_FILE`; framework downloads fail TLS until the proxy CA is appended to certifi: `cat /root/.ccr/ca-bundle.crt >> $(python3 -c 'import certifi; print(certifi.where())')` (and the penv's certifi).
+
 ## Simulator
 
 - Simulator patches belong in the adjacent `crosspoint-simulator` repo.
