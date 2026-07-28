@@ -9,8 +9,17 @@ firmware change should be as easy as opening a Claude session and saying
 1. **Ask.** Open a Claude Code session on this repo and describe the change
    ("make the font size change with the side buttons", "add a boot animation", ...).
 2. **Claude builds it.** Claude edits the code, validates with `pio run -e default`
-   (and `pio run -e simulator` for UI work), logs the load in the table below,
-   commits, and pushes.
+   (and `pio run -e simulator` for UI work), logs the load in the table below
+   and the day's work in `DEVLOG.md`, commits, and pushes.
+   **Before every commit that touches firmware code**, run two review agents in
+   parallel and act on their findings:
+   - a **security pass** (nothing malicious or unrelated smuggled in; no
+     unsafe indexing of persisted values; no unexpected changes to
+     network/OTA/flash-write paths), and
+   - a **breakage pass** (persisted enum values only ever appended; all build
+     variants still link; switch statements handle new values; RAM/flash
+     budgets respected — check the build's `RAM:`/`Flash:` summary and the
+     OTA-partition line).
 3. **CI produces the firmware.** Every push to `main` or a `claude/**` /
    `tinker/**` branch triggers `.github/workflows/tinker-build.yml`, which builds
    the `default` environment and publishes a **`load-<n>` release** on this
@@ -60,6 +69,13 @@ Rules that keep it that way:
   chat or as a small web page viewable on mobile/desktop — "here's how this load
   renders" before flashing anything. Could grow into a per-load screenshot
   gallery attached to each release.
+
+## Flash Budget
+
+The app must fit the 6,553,600-byte OTA partition (`check_firmware_size` fails
+the build otherwise). As of Load 2 we're at **99.7% (6,208 bytes free)** — each
+built-in font family costs ~1.05 MB. Before adding anything, free space first
+(trim a font family's fallback glyphs or drop a family).
 
 ## Notes for Claude sessions
 

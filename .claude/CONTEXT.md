@@ -4,7 +4,9 @@ Keep this file focused on repo-specific gotchas that are worth reusing in future
 
 ## Tinker Workflow
 
-- This fork is a personal tinker playground; the workflow (loads, flashing, safety) is in `TINKER.md`. Log every firmware-affecting change as a new load there.
+- This fork is a personal tinker playground; the workflow (loads, flashing, safety) is in `TINKER.md`. Log every firmware-affecting change as a new load there and add a dated entry to `DEVLOG.md`.
+- Before committing firmware changes, run the two pre-commit review agents (security + breakage) described in `TINKER.md`.
+- Each built-in reading-font family costs ~1.05 MB flash (glyph data + fallbacks). Estimate with `du -ch` of the family's headers divided by ~5.3, not by counting `0x` tokens. Firmware is at ~99.7% of the OTA partition as of Load 2.
 
 ## Building In Claude Cloud Sessions
 
