@@ -71,6 +71,55 @@
 #endif
 
 #ifndef OMIT_TEENSY_FONT
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_8_bold)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_8_bolditalic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_8_italic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_8_regular)
+#endif
+#ifndef OMIT_ITTY_BITTY_FONT
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_9_bold)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_9_bolditalic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_9_italic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_9_regular)
+#endif
+#ifndef OMIT_TINY_FONT
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_10_bold)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_10_bolditalic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_10_italic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_10_regular)
+#endif
+#ifndef OMIT_SMALL_FONT
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_12_bold)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_12_bolditalic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_12_italic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_12_regular)
+#endif
+#ifndef OMIT_MEDIUM_FONT
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_14_bold)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_14_bolditalic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_14_italic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_14_regular)
+#endif
+#ifndef OMIT_LARGE_FONT
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_16_bold)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_16_bolditalic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_16_italic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_16_regular)
+#endif
+#ifndef OMIT_XLARGE_FONT
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_18_bold)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_18_bolditalic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_18_italic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_18_regular)
+#endif
+#ifndef OMIT_HUGE_FONT
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_20_bold)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_20_bolditalic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_20_italic)
+#include BUILTIN_READING_FONT_HEADER(ebgaramond_20_regular)
+#endif
+
+#ifndef OMIT_TEENSY_FONT
 #include BUILTIN_READING_FONT_HEADER(lexenddeca_8_bold)
 #include BUILTIN_READING_FONT_HEADER(lexenddeca_8_bolditalic)
 #include BUILTIN_READING_FONT_HEADER(lexenddeca_8_italic)

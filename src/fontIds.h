@@ -121,6 +121,46 @@
 #else
 #define BITTER_20_FONT_ID (1392022129)
 #endif
+#ifdef OMIT_EMOJI_FONTS
+#define EBGARAMOND_8_FONT_ID (1391656503)
+#else
+#define EBGARAMOND_8_FONT_ID (-1204837984)
+#endif
+#ifdef OMIT_EMOJI_FONTS
+#define EBGARAMOND_9_FONT_ID (235727054)
+#else
+#define EBGARAMOND_9_FONT_ID (-1606849833)
+#endif
+#ifdef OMIT_EMOJI_FONTS
+#define EBGARAMOND_10_FONT_ID (-546464001)
+#else
+#define EBGARAMOND_10_FONT_ID (-238703941)
+#endif
+#ifdef OMIT_EMOJI_FONTS
+#define EBGARAMOND_12_FONT_ID (-1714705697)
+#else
+#define EBGARAMOND_12_FONT_ID (1083266275)
+#endif
+#ifdef OMIT_EMOJI_FONTS
+#define EBGARAMOND_14_FONT_ID (347706915)
+#else
+#define EBGARAMOND_14_FONT_ID (-926927097)
+#endif
+#ifdef OMIT_EMOJI_FONTS
+#define EBGARAMOND_16_FONT_ID (-868249416)
+#else
+#define EBGARAMOND_16_FONT_ID (253035667)
+#endif
+#ifdef OMIT_EMOJI_FONTS
+#define EBGARAMOND_18_FONT_ID (-1148294445)
+#else
+#define EBGARAMOND_18_FONT_ID (-194079446)
+#endif
+#ifdef OMIT_EMOJI_FONTS
+#define EBGARAMOND_20_FONT_ID (-499400883)
+#else
+#define EBGARAMOND_20_FONT_ID (229165300)
+#endif
 #define UI_10_FONT_ID (-227549249)
 #define UI_12_FONT_ID (652043988)
 #define SMALL_FONT_ID (-1760306835)
@@ -151,6 +191,14 @@ static_assert(BITTER_14_FONT_ID != 0, "Font ID collision with sentinel");
 static_assert(BITTER_16_FONT_ID != 0, "Font ID collision with sentinel");
 static_assert(BITTER_18_FONT_ID != 0, "Font ID collision with sentinel");
 static_assert(BITTER_20_FONT_ID != 0, "Font ID collision with sentinel");
+static_assert(EBGARAMOND_8_FONT_ID != 0, "Font ID collision with sentinel");
+static_assert(EBGARAMOND_9_FONT_ID != 0, "Font ID collision with sentinel");
+static_assert(EBGARAMOND_10_FONT_ID != 0, "Font ID collision with sentinel");
+static_assert(EBGARAMOND_12_FONT_ID != 0, "Font ID collision with sentinel");
+static_assert(EBGARAMOND_14_FONT_ID != 0, "Font ID collision with sentinel");
+static_assert(EBGARAMOND_16_FONT_ID != 0, "Font ID collision with sentinel");
+static_assert(EBGARAMOND_18_FONT_ID != 0, "Font ID collision with sentinel");
+static_assert(EBGARAMOND_20_FONT_ID != 0, "Font ID collision with sentinel");
 static_assert(UI_10_FONT_ID != 0, "Font ID collision with sentinel");
 static_assert(UI_12_FONT_ID != 0, "Font ID collision with sentinel");
 static_assert(SMALL_FONT_ID != 0, "Font ID collision with sentinel");

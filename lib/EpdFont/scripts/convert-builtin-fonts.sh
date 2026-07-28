@@ -208,6 +208,7 @@ generate_reading_variant() {
   echo "Generating ${label} font variants..."
   generate_family lexenddeca LexendDeca LexendDeca "$output_dir" "$include_fallbacks" yes
   generate_family bitter Bitter Bitter "$output_dir" "$include_fallbacks" yes
+  generate_family ebgaramond EBGaramond EBGaramond "$output_dir" "$include_fallbacks" yes
   generate_family charein ChareInk7 ChareInk7 "$output_dir" "$include_fallbacks" no
   echo ""
   echo "${label} variants complete."

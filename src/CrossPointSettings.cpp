@@ -165,6 +165,26 @@ int getFallbackReaderFontIdForFamily(const CrossPointSettings::FONT_FAMILY famil
 #else
 #error "No reader fonts enabled for BITTER"
 #endif
+    case CrossPointSettings::EBGARAMOND:
+#ifndef OMIT_TINY_FONT
+      return EBGARAMOND_10_FONT_ID;
+#elif !defined(OMIT_SMALL_FONT)
+      return EBGARAMOND_12_FONT_ID;
+#elif !defined(OMIT_MEDIUM_FONT)
+      return EBGARAMOND_14_FONT_ID;
+#elif !defined(OMIT_LARGE_FONT)
+      return EBGARAMOND_16_FONT_ID;
+#elif !defined(OMIT_XLARGE_FONT)
+      return EBGARAMOND_18_FONT_ID;
+#elif !defined(OMIT_HUGE_FONT)
+      return EBGARAMOND_20_FONT_ID;
+#elif !defined(OMIT_TEENSY_FONT)
+      return EBGARAMOND_8_FONT_ID;
+#elif !defined(OMIT_ITTY_BITTY_FONT)
+      return EBGARAMOND_9_FONT_ID;
+#else
+#error "No reader fonts enabled for EBGARAMOND"
+#endif
     case CrossPointSettings::LEXENDDECA:
     default:
 #ifndef OMIT_TINY_FONT
@@ -312,6 +332,7 @@ uint8_t CrossPointSettings::legacyLineSpacingToPercent(const uint8_t legacyValue
 
   switch (fontFamily) {
     case BITTER:
+    case EBGARAMOND:
       switch (legacyValue) {
         case TIGHT:
           return 95;
@@ -805,6 +826,46 @@ int CrossPointSettings::getBuiltInReaderFontId() const {
 #endif
       }
       return getFallbackReaderFontIdForFamily(BITTER);
+    case EBGARAMOND:
+      switch (effectiveSize) {
+#ifndef OMIT_TEENSY_FONT
+        case TEENSY:
+          return EBGARAMOND_8_FONT_ID;
+#endif
+#ifndef OMIT_ITTY_BITTY_FONT
+        case ITTY_BITTY:
+          return EBGARAMOND_9_FONT_ID;
+#endif
+#ifndef OMIT_TINY_FONT
+        case TINY:
+          return EBGARAMOND_10_FONT_ID;
+#endif
+#ifndef OMIT_SMALL_FONT
+        case SMALL:
+          return EBGARAMOND_12_FONT_ID;
+#endif
+#ifndef OMIT_MEDIUM_FONT
+        case MEDIUM:
+        default:
+          return EBGARAMOND_14_FONT_ID;
+#endif
+#ifndef OMIT_LARGE_FONT
+        case LARGE:
+#ifdef OMIT_MEDIUM_FONT
+        default:
+#endif
+          return EBGARAMOND_16_FONT_ID;
+#endif
+#ifndef OMIT_XLARGE_FONT
+        case EXTRA_LARGE:
+          return EBGARAMOND_18_FONT_ID;
+#endif
+#ifndef OMIT_HUGE_FONT
+        case HUGE_SIZE:
+          return EBGARAMOND_20_FONT_ID;
+#endif
+      }
+      return getFallbackReaderFontIdForFamily(EBGARAMOND);
   }
   return getFallbackReaderFontIdForFamily(static_cast<FONT_FAMILY>(fontFamily));
 }

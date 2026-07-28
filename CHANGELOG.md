@@ -1,3 +1,10 @@
+## [Unreleased]
+
+### Added
+
+- EB Garamond built-in reading font, a classic old-style serif available alongside Lexend Deca and Bitter in Font Selection and per-book font options.
+- `Font Size Up` and `Font Size Down` reader shortcut actions, assignable to short/long Power press, long-press Menu, and long-press Back.
+
 ## [v1.4.0] - 2026-07-10
 
 ### Added

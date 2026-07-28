@@ -221,6 +221,71 @@ EpdFont bitter20BoldItalicFont(&bitter_20_bolditalic);
 EpdFontFamily bitter20FontFamily(&bitter20RegularFont, &bitter20BoldFont, &bitter20ItalicFont, &bitter20BoldItalicFont);
 #endif
 
+#ifndef OMIT_TEENSY_FONT
+EpdFont ebgaramond8RegularFont(&ebgaramond_8_regular);
+EpdFont ebgaramond8BoldFont(&ebgaramond_8_bold);
+EpdFont ebgaramond8ItalicFont(&ebgaramond_8_italic);
+EpdFont ebgaramond8BoldItalicFont(&ebgaramond_8_bolditalic);
+EpdFontFamily ebgaramond8FontFamily(&ebgaramond8RegularFont, &ebgaramond8BoldFont, &ebgaramond8ItalicFont,
+                                    &ebgaramond8BoldItalicFont);
+#endif
+#ifndef OMIT_ITTY_BITTY_FONT
+EpdFont ebgaramond9RegularFont(&ebgaramond_9_regular);
+EpdFont ebgaramond9BoldFont(&ebgaramond_9_bold);
+EpdFont ebgaramond9ItalicFont(&ebgaramond_9_italic);
+EpdFont ebgaramond9BoldItalicFont(&ebgaramond_9_bolditalic);
+EpdFontFamily ebgaramond9FontFamily(&ebgaramond9RegularFont, &ebgaramond9BoldFont, &ebgaramond9ItalicFont,
+                                    &ebgaramond9BoldItalicFont);
+#endif
+#ifndef OMIT_TINY_FONT
+EpdFont ebgaramond10RegularFont(&ebgaramond_10_regular);
+EpdFont ebgaramond10BoldFont(&ebgaramond_10_bold);
+EpdFont ebgaramond10ItalicFont(&ebgaramond_10_italic);
+EpdFont ebgaramond10BoldItalicFont(&ebgaramond_10_bolditalic);
+EpdFontFamily ebgaramond10FontFamily(&ebgaramond10RegularFont, &ebgaramond10BoldFont, &ebgaramond10ItalicFont,
+                                     &ebgaramond10BoldItalicFont);
+#endif
+#ifndef OMIT_SMALL_FONT
+EpdFont ebgaramond12RegularFont(&ebgaramond_12_regular);
+EpdFont ebgaramond12BoldFont(&ebgaramond_12_bold);
+EpdFont ebgaramond12ItalicFont(&ebgaramond_12_italic);
+EpdFont ebgaramond12BoldItalicFont(&ebgaramond_12_bolditalic);
+EpdFontFamily ebgaramond12FontFamily(&ebgaramond12RegularFont, &ebgaramond12BoldFont, &ebgaramond12ItalicFont,
+                                     &ebgaramond12BoldItalicFont);
+#endif
+#ifndef OMIT_MEDIUM_FONT
+EpdFont ebgaramond14RegularFont(&ebgaramond_14_regular);
+EpdFont ebgaramond14BoldFont(&ebgaramond_14_bold);
+EpdFont ebgaramond14ItalicFont(&ebgaramond_14_italic);
+EpdFont ebgaramond14BoldItalicFont(&ebgaramond_14_bolditalic);
+EpdFontFamily ebgaramond14FontFamily(&ebgaramond14RegularFont, &ebgaramond14BoldFont, &ebgaramond14ItalicFont,
+                                     &ebgaramond14BoldItalicFont);
+#endif
+#ifndef OMIT_LARGE_FONT
+EpdFont ebgaramond16RegularFont(&ebgaramond_16_regular);
+EpdFont ebgaramond16BoldFont(&ebgaramond_16_bold);
+EpdFont ebgaramond16ItalicFont(&ebgaramond_16_italic);
+EpdFont ebgaramond16BoldItalicFont(&ebgaramond_16_bolditalic);
+EpdFontFamily ebgaramond16FontFamily(&ebgaramond16RegularFont, &ebgaramond16BoldFont, &ebgaramond16ItalicFont,
+                                     &ebgaramond16BoldItalicFont);
+#endif
+#ifndef OMIT_XLARGE_FONT
+EpdFont ebgaramond18RegularFont(&ebgaramond_18_regular);
+EpdFont ebgaramond18BoldFont(&ebgaramond_18_bold);
+EpdFont ebgaramond18ItalicFont(&ebgaramond_18_italic);
+EpdFont ebgaramond18BoldItalicFont(&ebgaramond_18_bolditalic);
+EpdFontFamily ebgaramond18FontFamily(&ebgaramond18RegularFont, &ebgaramond18BoldFont, &ebgaramond18ItalicFont,
+                                     &ebgaramond18BoldItalicFont);
+#endif
+#ifndef OMIT_HUGE_FONT
+EpdFont ebgaramond20RegularFont(&ebgaramond_20_regular);
+EpdFont ebgaramond20BoldFont(&ebgaramond_20_bold);
+EpdFont ebgaramond20ItalicFont(&ebgaramond_20_italic);
+EpdFont ebgaramond20BoldItalicFont(&ebgaramond_20_bolditalic);
+EpdFontFamily ebgaramond20FontFamily(&ebgaramond20RegularFont, &ebgaramond20BoldFont, &ebgaramond20ItalicFont,
+                                     &ebgaramond20BoldItalicFont);
+#endif
+
 EpdFont smallFont(&inter_8_regular);
 EpdFontFamily smallFontFamily(&smallFont);
 
@@ -671,6 +736,31 @@ void setupDisplayAndFonts(bool seamless = false) {
 #endif
 #ifndef OMIT_HUGE_FONT
   renderer.insertFont(BITTER_20_FONT_ID, bitter20FontFamily);
+#endif
+
+#ifndef OMIT_TEENSY_FONT
+  renderer.insertFont(EBGARAMOND_8_FONT_ID, ebgaramond8FontFamily);
+#endif
+#ifndef OMIT_ITTY_BITTY_FONT
+  renderer.insertFont(EBGARAMOND_9_FONT_ID, ebgaramond9FontFamily);
+#endif
+#ifndef OMIT_TINY_FONT
+  renderer.insertFont(EBGARAMOND_10_FONT_ID, ebgaramond10FontFamily);
+#endif
+#ifndef OMIT_SMALL_FONT
+  renderer.insertFont(EBGARAMOND_12_FONT_ID, ebgaramond12FontFamily);
+#endif
+#ifndef OMIT_MEDIUM_FONT
+  renderer.insertFont(EBGARAMOND_14_FONT_ID, ebgaramond14FontFamily);
+#endif
+#ifndef OMIT_LARGE_FONT
+  renderer.insertFont(EBGARAMOND_16_FONT_ID, ebgaramond16FontFamily);
+#endif
+#ifndef OMIT_XLARGE_FONT
+  renderer.insertFont(EBGARAMOND_18_FONT_ID, ebgaramond18FontFamily);
+#endif
+#ifndef OMIT_HUGE_FONT
+  renderer.insertFont(EBGARAMOND_20_FONT_ID, ebgaramond20FontFamily);
 #endif
   renderer.insertFont(UI_10_FONT_ID, ui10FontFamily);
   renderer.insertFont(UI_12_FONT_ID, ui12FontFamily);
