@@ -45,7 +45,8 @@ Rules that keep it that way:
 
 | Load | Date | Commit | What changed |
 |------|------|--------|--------------|
-| 0 | 2026-07-28 | `b7f6708` | Baseline: stock CrossInk v1.4.0, tinker workflow added |
+| 0 | 2026-07-28 | `b7f6708` | Baseline: stock CrossInk v1.4.0 |
+| [1](https://github.com/joedwin/CrossInk/releases/tag/load-1) | 2026-07-28 | `454d2e9` | Stock v1.4.0 firmware, first CI-built load (workflow added, no firmware changes) |
 
 ## Idea Backlog
 
