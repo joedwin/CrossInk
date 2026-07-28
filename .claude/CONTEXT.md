@@ -2,6 +2,21 @@
 
 Keep this file focused on repo-specific gotchas that are worth reusing in future sessions.
 
+## Tinker Workflow
+
+- This fork is a personal tinker playground; the workflow (loads, flashing, safety) is in `TINKER.md`. Log every firmware-affecting change as a new load there and add a dated entry to `DEVLOG.md`.
+- Before committing firmware changes, run the two pre-commit review agents (security + breakage) described in `TINKER.md`.
+- Each built-in reading-font family costs ~1.05 MB flash (glyph data + fallbacks). Estimate with `du -ch` of the family's headers divided by ~5.3, not by counting `0x` tokens. Firmware is at ~99.7% of the OTA partition as of Load 2.
+
+## Building In Claude Cloud Sessions
+
+- `git submodule update --init --recursive` first; the fresh clone has `freeink-sdk` unpopulated.
+- `pip install platformio` (PyPI 6.1.19). The pioarduino-core GitHub *archive* URL is 403-blocked by the egress proxy; GitHub release *downloads* are allowed.
+- The pioarduino platform's penv bootstrap fails on that same archive URL. Fix: pre-install `platformio==6.1.19` plus the `python_deps` list from `~/.platformio/platforms/espressif32/builder/penv_setup.py` into the penv via `uv pip install --python=/root/.platformio/penv/bin/python ...` so the blocked URL is skipped.
+- Python `requests` ignores `SSL_CERT_FILE`; framework downloads fail TLS until the proxy CA is appended to certifi: `cat /root/.ccr/ca-bundle.crt >> $(python3 -c 'import certifi; print(certifi.where())')` (and the penv's certifi).
+- The PlatformIO registry (`api.registry.platformio.org`) is proxy-blocked, so registry packages fail with `HTTPClientError`. Workaround: provide the package manually with a `.piopm` metadata file (copy an existing one for the format). `tool-scons` = SCons from PyPI into `~/.platformio/packages/tool-scons/lib` plus a `scons.py` shim; registry libraries (ArduinoJson, QRCode, PNGdec, WebSockets, transitive SdFat) = `git clone` the matching tag from GitHub into `.pio/libdeps/<env>/<Name>`, delete `.git`, add `.piopm`. WebSockets 2.7.3 has no git tag — clone default branch (library.json says 2.7.3). GitHub clones and release-asset downloads are allowed; GitHub `archive/refs/...` (codeload) is blocked.
+- With all workarounds applied, `pio run -e default` succeeds (~5 min) and produces `.pio/build/default/firmware-default.bin`.
+
 ## Simulator
 
 - Simulator patches belong in the adjacent `crosspoint-simulator` repo.

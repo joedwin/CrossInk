@@ -146,7 +146,7 @@ inline uint8_t closestBuiltinFontSizeIndex(const uint8_t targetPointSize) {
 // are appended after the built-in fonts. Otherwise only built-in fonts are listed.
 inline SettingInfo buildFontFamilySetting(const SdCardFontRegistry* registry) {
   // Built-in font labels (StrId)
-  std::vector<StrId> enumValues = {StrId::STR_LEXEND_DECA, StrId::STR_BITTER};
+  std::vector<StrId> enumValues = {StrId::STR_LEXEND_DECA, StrId::STR_EBGARAMOND};
   // Runtime string labels for SD card fonts
   std::vector<std::string> enumStringValues;
 
@@ -168,7 +168,7 @@ inline SettingInfo buildFontFamilySetting(const SdCardFontRegistry* registry) {
   std::vector<std::string> allStringValues;
   if (sdFontCount > 0) {
     allStringValues.push_back(I18N.get(StrId::STR_LEXEND_DECA));
-    allStringValues.push_back(I18N.get(StrId::STR_BITTER));
+    allStringValues.push_back(I18N.get(StrId::STR_EBGARAMOND));
     allStringValues.insert(allStringValues.end(), enumStringValues.begin(), enumStringValues.end());
   }
 
@@ -314,7 +314,7 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
     // Built-in font-family entry. Replaced per-call with a registry-aware
     // version when SD fonts are installed.
     add(SettingInfo::Enum(StrId::STR_FONT_FAMILY, &CrossPointSettings::fontFamily,
-                          {StrId::STR_LEXEND_DECA, StrId::STR_BITTER}, "fontFamily", StrId::STR_CAT_READER));
+                          {StrId::STR_LEXEND_DECA, StrId::STR_EBGARAMOND}, "fontFamily", StrId::STR_CAT_READER));
     add(buildBuiltinFontSizeSetting());
     add(SettingInfo::Enum(StrId::STR_SD_FONT_SIZE_RANGE, &CrossPointSettings::sdFontSizeRange,
                           {StrId::STR_FONT_RANGE_TEENSY, StrId::STR_FONT_RANGE_TINY, StrId::STR_FONT_RANGE_XLARGE,
@@ -391,6 +391,8 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
                            StrId::STR_MARK_FINISHED,
                            StrId::STR_FORCE_REFRESH,
                            StrId::STR_CHANGE_FONT,
+                           StrId::STR_FONT_SIZE_UP,
+                           StrId::STR_FONT_SIZE_DOWN,
                            StrId::STR_TOGGLE_GUIDE_DOTS,
                            StrId::STR_TOGGLE_BIONIC_READING,
                            StrId::STR_CYCLE_PAGE_TURN,
@@ -413,6 +415,8 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
                                 CrossPointSettings::MARK_FINISHED,
                                 CrossPointSettings::FORCE_REFRESH,
                                 CrossPointSettings::TOGGLE_FONT,
+                                CrossPointSettings::FONT_SIZE_UP,
+                                CrossPointSettings::FONT_SIZE_DOWN,
                                 CrossPointSettings::TOGGLE_GUIDE_DOTS,
                                 CrossPointSettings::TOGGLE_BIONIC_READING,
                                 CrossPointSettings::CYCLE_PAGE_TURN,
@@ -435,6 +439,8 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
                            StrId::STR_MARK_FINISHED,
                            StrId::STR_FORCE_REFRESH,
                            StrId::STR_CHANGE_FONT,
+                           StrId::STR_FONT_SIZE_UP,
+                           StrId::STR_FONT_SIZE_DOWN,
                            StrId::STR_TOGGLE_GUIDE_DOTS,
                            StrId::STR_TOGGLE_BIONIC_READING,
                            StrId::STR_CYCLE_PAGE_TURN,
@@ -457,6 +463,8 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
                                 CrossPointSettings::MARK_FINISHED,
                                 CrossPointSettings::FORCE_REFRESH,
                                 CrossPointSettings::TOGGLE_FONT,
+                                CrossPointSettings::FONT_SIZE_UP,
+                                CrossPointSettings::FONT_SIZE_DOWN,
                                 CrossPointSettings::TOGGLE_GUIDE_DOTS,
                                 CrossPointSettings::TOGGLE_BIONIC_READING,
                                 CrossPointSettings::CYCLE_PAGE_TURN,
@@ -478,6 +486,8 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
                            StrId::STR_MARK_FINISHED,
                            StrId::STR_FORCE_REFRESH,
                            StrId::STR_CHANGE_FONT,
+                           StrId::STR_FONT_SIZE_UP,
+                           StrId::STR_FONT_SIZE_DOWN,
                            StrId::STR_TOGGLE_GUIDE_DOTS,
                            StrId::STR_TOGGLE_BIONIC_READING,
                            StrId::STR_CYCLE_PAGE_TURN,
@@ -499,6 +509,8 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
                                 CrossPointSettings::LONG_MENU_MARK_FINISHED,
                                 CrossPointSettings::LONG_MENU_REFRESH_SCREEN,
                                 CrossPointSettings::LONG_MENU_CHANGE_FONT,
+                                CrossPointSettings::LONG_MENU_FONT_SIZE_UP,
+                                CrossPointSettings::LONG_MENU_FONT_SIZE_DOWN,
                                 CrossPointSettings::LONG_MENU_TOGGLE_GUIDE_DOTS,
                                 CrossPointSettings::LONG_MENU_TOGGLE_BIONIC,
                                 CrossPointSettings::LONG_MENU_CYCLE_PAGE_TURN,
@@ -520,6 +532,8 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
                            StrId::STR_MARK_FINISHED,
                            StrId::STR_FORCE_REFRESH,
                            StrId::STR_CHANGE_FONT,
+                           StrId::STR_FONT_SIZE_UP,
+                           StrId::STR_FONT_SIZE_DOWN,
                            StrId::STR_TOGGLE_GUIDE_DOTS,
                            StrId::STR_TOGGLE_BIONIC_READING,
                            StrId::STR_CYCLE_PAGE_TURN,
@@ -541,6 +555,8 @@ inline std::vector<SettingInfo> getSettingsList(const SdCardFontRegistry* regist
                                 CrossPointSettings::LONG_MENU_MARK_FINISHED,
                                 CrossPointSettings::LONG_MENU_REFRESH_SCREEN,
                                 CrossPointSettings::LONG_MENU_CHANGE_FONT,
+                                CrossPointSettings::LONG_MENU_FONT_SIZE_UP,
+                                CrossPointSettings::LONG_MENU_FONT_SIZE_DOWN,
                                 CrossPointSettings::LONG_MENU_TOGGLE_GUIDE_DOTS,
                                 CrossPointSettings::LONG_MENU_TOGGLE_BIONIC,
                                 CrossPointSettings::LONG_MENU_CYCLE_PAGE_TURN,

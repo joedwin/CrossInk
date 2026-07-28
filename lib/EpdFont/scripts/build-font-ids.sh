@@ -103,6 +103,23 @@ reading_font_id BITTER_18_FONT_ID \
 reading_font_id BITTER_20_FONT_ID \
   ./bitter_20_regular.h ./bitter_20_bold.h ./bitter_20_bolditalic.h ./bitter_20_italic.h
 
+reading_font_id EBGARAMOND_8_FONT_ID \
+  ./ebgaramond_8_regular.h ./ebgaramond_8_bold.h ./ebgaramond_8_bolditalic.h ./ebgaramond_8_italic.h
+reading_font_id EBGARAMOND_9_FONT_ID \
+  ./ebgaramond_9_regular.h ./ebgaramond_9_bold.h ./ebgaramond_9_bolditalic.h ./ebgaramond_9_italic.h
+reading_font_id EBGARAMOND_10_FONT_ID \
+  ./ebgaramond_10_regular.h ./ebgaramond_10_bold.h ./ebgaramond_10_bolditalic.h ./ebgaramond_10_italic.h
+reading_font_id EBGARAMOND_12_FONT_ID \
+  ./ebgaramond_12_regular.h ./ebgaramond_12_bold.h ./ebgaramond_12_bolditalic.h ./ebgaramond_12_italic.h
+reading_font_id EBGARAMOND_14_FONT_ID \
+  ./ebgaramond_14_regular.h ./ebgaramond_14_bold.h ./ebgaramond_14_bolditalic.h ./ebgaramond_14_italic.h
+reading_font_id EBGARAMOND_16_FONT_ID \
+  ./ebgaramond_16_regular.h ./ebgaramond_16_bold.h ./ebgaramond_16_bolditalic.h ./ebgaramond_16_italic.h
+reading_font_id EBGARAMOND_18_FONT_ID \
+  ./ebgaramond_18_regular.h ./ebgaramond_18_bold.h ./ebgaramond_18_bolditalic.h ./ebgaramond_18_italic.h
+reading_font_id EBGARAMOND_20_FONT_ID \
+  ./ebgaramond_20_regular.h ./ebgaramond_20_bold.h ./ebgaramond_20_bolditalic.h ./ebgaramond_20_italic.h
+
 # UI fonts — no emoji variant
 emit_hash_define UI_10_FONT_ID ./inter_10_regular.h ./inter_10_bold.h
 emit_hash_define UI_12_FONT_ID ./inter_12_regular.h ./inter_12_bold.h
@@ -118,6 +135,8 @@ for id in \
   CHAREINK_16_FONT_ID CHAREINK_18_FONT_ID CHAREINK_20_FONT_ID \
   BITTER_8_FONT_ID BITTER_9_FONT_ID BITTER_10_FONT_ID BITTER_12_FONT_ID BITTER_14_FONT_ID \
   BITTER_16_FONT_ID BITTER_18_FONT_ID BITTER_20_FONT_ID \
+  EBGARAMOND_8_FONT_ID EBGARAMOND_9_FONT_ID EBGARAMOND_10_FONT_ID EBGARAMOND_12_FONT_ID EBGARAMOND_14_FONT_ID \
+  EBGARAMOND_16_FONT_ID EBGARAMOND_18_FONT_ID EBGARAMOND_20_FONT_ID \
   UI_10_FONT_ID UI_12_FONT_ID SMALL_FONT_ID; do
   echo "static_assert(${id} != 0, \"Font ID collision with sentinel\");"
 done

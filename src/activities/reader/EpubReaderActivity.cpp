@@ -3239,6 +3239,16 @@ void EpubReaderActivity::executeReaderQuickAction(CrossPointSettings::LONG_PRESS
     case CrossPointSettings::LONG_MENU_CREATE_CLIPPING:
       startClipSelection();
       break;
+    case CrossPointSettings::LONG_MENU_FONT_SIZE_UP:
+      if (sdFontSystem.changeReaderFontSize(/*larger=*/true)) {
+        reindexCurrentSection();
+      }
+      break;
+    case CrossPointSettings::LONG_MENU_FONT_SIZE_DOWN:
+      if (sdFontSystem.changeReaderFontSize(/*larger=*/false)) {
+        reindexCurrentSection();
+      }
+      break;
     case CrossPointSettings::LONG_MENU_OFF:
     default:
       break;
@@ -3368,6 +3378,12 @@ bool EpubReaderActivity::executeShortPowerButtonAction() {
       mappedInput.suppressNextPowerConfirmRelease();
       executeReaderQuickAction(CrossPointSettings::LONG_MENU_CREATE_CLIPPING);
       return true;
+    case CrossPointSettings::SHORT_PWRBTN::FONT_SIZE_UP:
+      executeReaderQuickAction(CrossPointSettings::LONG_MENU_FONT_SIZE_UP);
+      return true;
+    case CrossPointSettings::SHORT_PWRBTN::FONT_SIZE_DOWN:
+      executeReaderQuickAction(CrossPointSettings::LONG_MENU_FONT_SIZE_DOWN);
+      return true;
     default:
       return false;
   }
@@ -3460,6 +3476,12 @@ bool EpubReaderActivity::executeLongPowerButtonAction() {
     case CrossPointSettings::SHORT_PWRBTN::CREATE_CLIPPING:
       mappedInput.suppressNextPowerConfirmRelease();
       executeReaderQuickAction(CrossPointSettings::LONG_MENU_CREATE_CLIPPING);
+      return true;
+    case CrossPointSettings::SHORT_PWRBTN::FONT_SIZE_UP:
+      executeReaderQuickAction(CrossPointSettings::LONG_MENU_FONT_SIZE_UP);
+      return true;
+    case CrossPointSettings::SHORT_PWRBTN::FONT_SIZE_DOWN:
+      executeReaderQuickAction(CrossPointSettings::LONG_MENU_FONT_SIZE_DOWN);
       return true;
     default:
       return false;
