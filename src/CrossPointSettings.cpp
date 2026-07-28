@@ -145,26 +145,6 @@ CrossPointSettings::FONT_SIZE firstAvailableReaderFontSize() {
 
 int getFallbackReaderFontIdForFamily(const CrossPointSettings::FONT_FAMILY family) {
   switch (family) {
-    case CrossPointSettings::BITTER:
-#ifndef OMIT_TINY_FONT
-      return BITTER_10_FONT_ID;
-#elif !defined(OMIT_SMALL_FONT)
-      return BITTER_12_FONT_ID;
-#elif !defined(OMIT_MEDIUM_FONT)
-      return BITTER_14_FONT_ID;
-#elif !defined(OMIT_LARGE_FONT)
-      return BITTER_16_FONT_ID;
-#elif !defined(OMIT_XLARGE_FONT)
-      return BITTER_18_FONT_ID;
-#elif !defined(OMIT_HUGE_FONT)
-      return BITTER_20_FONT_ID;
-#elif !defined(OMIT_TEENSY_FONT)
-      return BITTER_8_FONT_ID;
-#elif !defined(OMIT_ITTY_BITTY_FONT)
-      return BITTER_9_FONT_ID;
-#else
-#error "No reader fonts enabled for BITTER"
-#endif
     case CrossPointSettings::EBGARAMOND:
 #ifndef OMIT_TINY_FONT
       return EBGARAMOND_10_FONT_ID;
@@ -331,8 +311,7 @@ uint8_t CrossPointSettings::legacyLineSpacingToPercent(const uint8_t legacyValue
   }
 
   switch (fontFamily) {
-    case BITTER:
-    case EBGARAMOND:
+    case EBGARAMOND:  // slot 1 also covers legacy Bitter settings
       switch (legacyValue) {
         case TIGHT:
           return 95;
@@ -786,46 +765,6 @@ int CrossPointSettings::getBuiltInReaderFontId() const {
 #endif
       }
       return getFallbackReaderFontIdForFamily(LEXENDDECA);
-    case BITTER:
-      switch (effectiveSize) {
-#ifndef OMIT_TEENSY_FONT
-        case TEENSY:
-          return BITTER_8_FONT_ID;
-#endif
-#ifndef OMIT_ITTY_BITTY_FONT
-        case ITTY_BITTY:
-          return BITTER_9_FONT_ID;
-#endif
-#ifndef OMIT_TINY_FONT
-        case TINY:
-          return BITTER_10_FONT_ID;
-#endif
-#ifndef OMIT_SMALL_FONT
-        case SMALL:
-          return BITTER_12_FONT_ID;
-#endif
-#ifndef OMIT_MEDIUM_FONT
-        case MEDIUM:
-        default:
-          return BITTER_14_FONT_ID;
-#endif
-#ifndef OMIT_LARGE_FONT
-        case LARGE:
-#ifdef OMIT_MEDIUM_FONT
-        default:
-#endif
-          return BITTER_16_FONT_ID;
-#endif
-#ifndef OMIT_XLARGE_FONT
-        case EXTRA_LARGE:
-          return BITTER_18_FONT_ID;
-#endif
-#ifndef OMIT_HUGE_FONT
-        case HUGE_SIZE:
-          return BITTER_20_FONT_ID;
-#endif
-      }
-      return getFallbackReaderFontIdForFamily(BITTER);
     case EBGARAMOND:
       switch (effectiveSize) {
 #ifndef OMIT_TEENSY_FONT

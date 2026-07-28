@@ -56,7 +56,8 @@ Rules that keep it that way:
 |------|------|--------|--------------|
 | 0 | 2026-07-28 | `b7f6708` | Baseline: stock CrossInk v1.4.0 |
 | [1](https://github.com/joedwin/CrossInk/releases/tag/load-1) | 2026-07-28 | `454d2e9` | Stock v1.4.0 firmware, first CI-built load (workflow added, no firmware changes) |
-| [2](https://github.com/joedwin/CrossInk/releases/tag/load-2) | 2026-07-28 | — | EB Garamond built-in font; Font Size Up/Down shortcut actions for Power/Menu/Back buttons |
+| [2](https://github.com/joedwin/CrossInk/releases/tag/load-2) | 2026-07-28 | `7347968` | EB Garamond built-in font; Font Size Up/Down shortcut actions for Power/Menu/Back buttons |
+| [3](https://github.com/joedwin/CrossInk/releases/tag/load-3) | 2026-07-28 | — | Drop Bitter to reclaim ~1 MB flash; EB Garamond takes its settings slot (stored Bitter prefs become EB Garamond) |
 
 ## Idea Backlog
 

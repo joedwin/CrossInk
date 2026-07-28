@@ -2,8 +2,12 @@
 
 ### Added
 
-- EB Garamond built-in reading font, a classic old-style serif available alongside Lexend Deca and Bitter in Font Selection and per-book font options.
+- EB Garamond built-in reading font, a classic old-style serif available alongside Lexend Deca in Font Selection and per-book font options.
 - `Font Size Up` and `Font Size Down` reader shortcut actions, assignable to short/long Power press, long-press Menu, and long-press Back.
+
+### Removed
+
+- Bitter built-in reading font, replaced by EB Garamond as the built-in serif to keep the firmware within flash limits. Devices with Bitter selected switch to EB Garamond automatically.
 
 ## [v1.4.0] - 2026-07-10
 

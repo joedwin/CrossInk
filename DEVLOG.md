@@ -37,3 +37,20 @@ session that changes the repo should add or extend a day entry here.
   anything else.
 - Introduced pre-commit review agents (security pass + breakage pass) as a
   standing workflow step; first run performed retroactively on Load 2's diff.
+  Both passed: no security findings; benign notes only (new shortcuts no-op in
+  TXT/XTC readers; stale font index falls back to EB Garamond).
+
+**Load 3: drop Bitter, reclaim flash.**
+- Joe picked "drop Bitter" to fix the 99.7%-full flash. Removed Bitter from
+  the build (all.h includes, main.cpp objects/registration, settings enum and
+  UI lists); EB Garamond takes enum slot 1 so persisted serif preferences map
+  serif→serif. Bitter's generated headers and sources stay in the repo, so
+  reverting is one commit. Legacy line-spacing conversion for old stored
+  Bitter settings keeps the serif values via the slot-1 case.
+- Pre-commit reviews ran before this commit (new policy's first proper use):
+  security PASS, breakage PASS with one accepted quirk — a device that ran
+  Load 2 with EB Garamond selected resets to Lexend Deca once on upgrade
+  (stored value 2 clamps to default; re-pick EB Garamond and it sticks).
+  Chose not to add a value-2 remap to avoid permanent migration debt.
+- Build after the drop: 5,443,696 bytes — 1.06 MB flash headroom reclaimed
+  (~83% full, slightly leaner than the pre-Garamond baseline).

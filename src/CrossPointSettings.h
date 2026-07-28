@@ -140,7 +140,10 @@ class CrossPointSettings {
   };
 
   // Font family options (built-in fonts only; SD card fonts use sdFontFamilyName)
-  enum FONT_FAMILY { LEXENDDECA = 0, BITTER = 1, EBGARAMOND = 2, FONT_FAMILY_COUNT };
+  // BITTER previously occupied slot 1; EB Garamond takes it over so stored
+  // serif preferences keep pointing at a serif. Bitter's generated headers
+  // remain in the repo for an easy revert.
+  enum FONT_FAMILY { LEXENDDECA = 0, EBGARAMOND = 1, FONT_FAMILY_COUNT };
   static constexpr uint8_t BUILTIN_FONT_COUNT = FONT_FAMILY_COUNT;
   // Font size options
   enum FONT_SIZE {
